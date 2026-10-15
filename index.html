@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sujit Shakya — git log</title>
+  <meta name="description" content="Sujit Shakya, software engineer in Berlin. A career as a git history: a main branch of software, and an AI branch that finally got merged.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+
+    <header class="hero">
+      <p class="prompt"><span class="dim">~/sujit $</span> whoami</p>
+      <h1>Sujit Shakya</h1>
+      <p class="role">Senior Software Engineer · Berlin</p>
+      <p class="lede">
+        I've been shipping software since 2012, mostly backends, mostly Rails, always with one
+        eye on the logs. For years AI was my side branch. Now it's merged into main: I build with
+        agents, and I build the guardrails they work inside.
+      </p>
+      <ul class="stats" aria-label="At a glance">
+        <li><b>13+</b> years</li>
+        <li><b>6</b> companies</li>
+        <li><b>2</b> countries</li>
+        <li><b>3</b> spoken languages, <b>6+</b> programming</li>
+        <li><b>0</b> deploys on a Friday since 2026</li>
+      </ul>
+      <nav class="toc" aria-label="Sections">
+        <a href="#log">git log</a>
+        <a href="#fortunes">fortunes</a>
+        <a href="#postmortems">postmortems</a>
+        <a href="#deps">package.json</a>
+        <a href="#readme">readme</a>
+        <a href="#now">now</a>
+      </nav>
+    </header>
+
+    <section id="log">
+      <h2><span class="hash">$</span> <span class="nw">git log --graph --reverse</span></h2>
+      <p class="note">
+        Real git refuses to combine <code>--graph</code> with <code>--reverse</code>. I did it anyway,
+        so you can read it from the beginning.
+      </p>
+      <p class="legend">
+        <span class="lg"><span class="key main"></span> <code>main</code> software</span>
+        <span class="lg"><span class="key ai"></span> <code>ai</code> the side branch that grew up</span>
+      </p>
+
+      <ol class="graph">
+
+        <li class="c main">
+          <span class="dot"></span>
+          <p class="meta"><span class="sha">3a7f0c1</span> Aug 2012 · Kathmandu</p>
+          <p class="msg">Initial commit</p>
+          <p>Internship at <b>Sastra Creations</b>: PHP, Joomla, MySQL, and keeping e-commerce sites alive.</p>
+        </li>
+
+        <li class="c main">
+          <span class="dot"></span>
+          <p class="meta"><span class="sha">7e57ed0</span> Mar 2013 · Sastra Creations</p>
+          <p class="msg">feat: switch to Ruby on Rails</p>
+          <p>Web developer, building Rails apps from planning to deploy. This is where I wrote my first test before the code. Rails stayed.</p>
+        </li>
+
+        <li class="c ai fork">
+          <span class="curve"></span>
+          <span class="dot"></span>
+          <p class="meta"><span class="sha">a15eed0</span> Jan 2014 · Nepal Engineering College</p>
+          <p class="msg">feat(ai): movie recommender system</p>
+          <p>My Computer Engineering thesis used K-means clustering plus collaborative filtering. It was my first taste of ML, about ten years before everyone wanted some. <a href="https://github.com/BlackRabbitt/RecommenderSystem">source</a></p>
+        </li>
+
+        <li class="c main ai-on">
+          <span class="dot"></span>
+          <p class="meta"><span class="sha">b16da7a</span> Feb 2014 · Deerwalk</p>
+          <p class="msg">feat: big data, Java edition</p>
+          <p>Associate engineer on a healthcare plan-analytics product. I shipped features across releases 2.7 → 3.7 and tuned a Hadoop engine and a Grails + Elasticsearch service.</p>
+        </li>
+
+        <li class="c main ai-on">
+          <span class="dot"></span>
+          <p class="meta"><span class="sha">1eade25</span> Mar 2015 · Esignature</p>
+          <p class="msg">refactor(role): developer → team lead</p>
+          <p>Rails team lead two years in: planning the workload, training an intern, and running workshops for teammates who were falling behind. I learned that training people is a lot harder than training models.</p>
+        </li>
+
+        <li class="c main ai-on">
+          <span class="dot"></span>
+          <p class="meta"><span class="sha">5ea4c40</span> Sep 2015 · Codyssey</p>
+          <p class="msg">feat(search): information retrieval in Go</p>
+          <p>Senior engineer. I built an IR system in Go, designed an intranet search service on top of it, and wrote social-analytics APIs that help businesses find the right influencers. Out of it came <a href="https://github.com/BlackRabbitt/mspm">mspm</a>, an open-source Aho–Corasick-style pattern matcher.</p>
+        </li>
+
+        <li class="c main ai-on">
+          <span class="dot"></span>
+          <p class="meta"><span class="sha">7a1c18f</span> Jan 2018 · Ruby Meetup Nepal</p>
+          <p class="msg">docs: talk "Kafka with Rails"</p>
+          <p>My first public talk about events and queues. Eight years later I'm still building event-driven systems. <a href="https://youtu.be/wKZVnd4EeAs">watch</a></p>
+        </li>
+
+        <li class="c ai main-on">
+          <span class="dot"></span>
+          <p class="meta"><span class="sha">f01ca11</span> side quest · self-taught</p>
+          <p class="msg">feat(ai): RNN that writes Irish folk music</p>
+          <p>I worked through MIT's <em>Intro to Deep Learning</em> and trained a recurrent network to compose tunes. <a href="https://youtu.be/vHBX-jKzEJk">listen</a> (at your own risk).</p>
+        </li>
+
+        <li class="c main ai-on">
+          <span class="dot"></span>
+          <p class="meta"><span class="sha">b111ab1</span> Sep 2018 · DesignFiles (remote)</p>
+          <p class="msg">feat(payments): own the money paths</p>
+          <p>Senior full-stack engineer on business software for interior designers. I architected invoices, Stripe card and ACH payments, refunds, QuickBooks sync, and the financial dashboard. That's where I picked up a healthy fear of anything that moves money.</p>
+        </li>
+
+        <li class="c main ai-on">
+          <span class="dot"></span>
+          <p class="meta"><span class="sha">be71170</span> Oct 2022 · getolo, Berlin</p>
+          <p class="msg">feat: insurance, at scale</p>
+          <p>I joined getolo to work on a pet and dental insurance platform. When the acquisition squad formed, I was its first backend engineer, building referrals, vouchers, multiple pets per customer, digital payments and partner integrations.</p>
+        </li>
+
+        <li class="c ai main-on">
+          <span class="dot"></span>
+          <p class="meta"><span class="sha">c4a7001</span> ~2023 · the chat era</p>
+          <p class="msg">feat(ai): a rubber duck that talks back</p>
+          <p>AI arrived as a chat box next to the editor: fast, confident, and sometimes confidently wrong. The hard part of the job moved from <em>writing</em> code to <em>reading</em> it.</p>
+        </li>
+
+        <li class="c main ai-on">
+          <span class="dot"></span>
+          <p class="meta"><span class="sha">acc0de5</span> 2024 · getolo</p>
+          <p class="msg">feat(team): hiring and Engineering Discovery</p>
+          <p>I co-designed the system-design interview and sat on the panel for 13 of them. I also started the <em>Engineering Discovery</em> practice (write down the <em>what</em> and <em>why</em> before an RFC decides the <em>how</em>), and other engineers now write their own.</p>
+        </li>
+
+        <li class="c main ai-on">
+          <span class="dot"></span>
+          <p class="meta"><span class="sha">10661ed</span> 2025 · getolo</p>
+          <p class="msg">feat(observability): one logger to rule them all</p>
+          <p>I built the backend for the France launch, then a company-wide JSON logging standard that eight other engineers have built on since. That's the nicest thing anyone can say about a logger.</p>
+        </li>
+
+        <li class="c ai main-on">
+          <span class="dot"></span>
+          <p class="meta"><span class="sha">a6e7101</span> hackathon · getolo</p>
+          <p class="msg">feat(ai): an agent that unblocks stuck sign-ups</p>
+          <p>It correlates data across systems, finds the root cause, and hands customer support a link to send so the customer can finish signing up. This is when the chat box got hands.</p>
+        </li>
+
+        <li class="c main ai-on">
+          <span class="dot"></span>
+          <p class="meta"><span class="sha">e7e47b5</span> 2026 · getolo</p>
+          <p class="msg">feat(events): an event bus other teams can build on</p>
+          <p>I designed and built a transactional outbox → EventBridge → SQS pipeline and a Python consumer runtime, so marketing, sales and data stop needing a new webhook for every idea. I also led the Ruby 4 / Rails 8.1 upgrade, rolled out canary-first with zero regressions found in QA.</p>
+        </li>
+
+        <li class="c ai main-on">
+          <span class="dot"></span>
+          <p class="meta"><span class="sha">5c1115a</span> 2026 · agents</p>
+          <p class="msg">feat(ai): agents, with guardrails</p>
+          <p>
+            I write agent skills, not just prompts. One lets marketers build event consumers with their AI assistant:
+            a <b>green zone</b> they can edit freely, and a <b>handoff zone</b> (payloads, queues, secrets, consent)
+            where the agent drafts a request for an engineer instead of making the change. Another,
+            <a href="https://github.com/BlackRabbitt/guruji">guruji</a>, is an architecture mentor that argues with
+            my designs and keeps a log of my real decisions and mistakes.
+          </p>
+        </li>
+
+        <li class="c main merge">
+          <span class="curve"></span>
+          <span class="dot"></span>
+          <p class="meta"><span class="sha">4e46e00</span> 2026 · <span class="head">HEAD → main</span></p>
+          <p class="msg">Merge branch 'ai' into main</p>
+          <p>AI isn't a side project any more; it's part of how the work gets done. My job now is partly writing the <em>fences</em>: docs, conventions and boundaries that let an agent (or a new hire) contribute safely. Agents get least privilege, same as people, and anything irreversible needs a human "yes."</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="fortunes">
+      <h2><span class="hash">$</span> fortune sujit</h2>
+      <p class="note">Things I learned the hard way, squeezed into cookies.</p>
+
+      <figure class="fortune" aria-live="polite">
+        <blockquote id="fortune-text">A config file is a wish. The running process is the truth.</blockquote>
+        <button type="button" id="fortune-next">another one ↻</button>
+      </figure>
+
+      <ul class="cookies">
+        <li>The first root cause is a suspect, not a verdict.</li>
+        <li>If it isn't monitored, it's a rumour.</li>
+        <li>Don't fix the bug. Make the bug impossible.</li>
+        <li>A language is a brush. Please stop arguing about brushes.</li>
+        <li>Retries are a promise. Only make them to errors that deserve one.</li>
+        <li><code>nil</code> isn't a value. It's a question nobody answered.</li>
+        <li>Delete the abstraction you built for a future that never came.</li>
+        <li>Before you buy a bigger server, delete the expensive query.</li>
+        <li>Unicode is not optional. Just ask anyone named Müller.</li>
+        <li>Anything that moves money deserves a second pair of eyes and a third test.</li>
+        <li>A chat answers a question. An agent needs a job description.</li>
+        <li>AI writes the diff. You still own the blast radius.</li>
+        <li>Give the agent a fence, not a leash.</li>
+      </ul>
+    </section>
+
+    <section id="postmortems">
+      <h2><span class="hash">$</span> ls postmortems/</h2>
+      <p class="note">Blameless format, including when the person to blame was me. Tap one to open it.</p>
+
+      <details class="pm">
+        <summary><span class="id">INC-001</span> The Friday deploy</summary>
+        <dl>
+          <dt>What happened</dt><dd>I shipped on a Friday. A change caused duplicate webhooks, and the dead-job queue filled up by the thousands.</dd>
+          <dt>Fix</dt><dd>Hotfix in about 90 minutes, then a blameless write-up and an anomaly monitor.</dd>
+          <dt>Prevention</dt><dd>I added a CI/CD check that blocks Friday deploys for everyone, starting with me.</dd>
+        </dl>
+      </details>
+
+      <details class="pm">
+        <summary><span class="id">INC-002</span> Four workers, allegedly</summary>
+        <dl>
+          <dt>What happened</dt><dd>The config said 4 Puma workers. The servers had quietly been running 3, because a "smart" restart never re-read boot-time config.</dd>
+          <dt>Lesson</dt><dd>Check the running process, not the file.</dd>
+        </dl>
+      </details>
+
+      <details class="pm">
+        <summary><span class="id">INC-003</span> Falling for my first theory</summary>
+        <dl>
+          <dt>What happened</dt><dd>On more than one investigation I was sure I'd found the cause, then had to throw the theory out when the data disagreed. Twice in one case.</dd>
+          <dt>Lesson</dt><dd>Write the hypothesis down, then try to prove it wrong before you tell anyone it's right.</dd>
+        </dl>
+      </details>
+
+      <details class="pm">
+        <summary><span class="id">INC-004</span> Too quiet in the room</summary>
+        <dl>
+          <dt>What happened</dt><dd>Early on I'd have the right idea and not push for it. A colleague's feedback, in three words: "be more brave."</dd>
+          <dt>Fix</dt><dd>I started writing RFCs and leading the discussions, pushing back on vague answers, and holding a position under pressure while conceding the points that were fair.</dd>
+        </dl>
+      </details>
+
+      <details class="pm">
+        <summary><span class="id">INC-005</span> PR description: "see ticket"</summary>
+        <dl>
+          <dt>What happened</dt><dd>My early pull requests were a ticket link and a prayer.</dd>
+          <dt>Fix</dt><dd>Now they carry context, a rollout plan, and a rollback plan that actually runs. Reviewers are noticeably less sad.</dd>
+        </dl>
+      </details>
+
+      <details class="pm">
+        <summary><span class="id">INC-006</span> Rust for everything</summary>
+        <dl>
+          <dt>What happened</dt><dd>I started a computer-vision side project in Rust because it sounded fun, then found that the ecosystem I needed lived in Python.</dd>
+          <dt>Lesson</dt><dd>Choose the tool for where the problem lives, not for the vibe. (I still love Rust.)</dd>
+        </dl>
+      </details>
+
+      <details class="pm">
+        <summary><span class="id">INC-007</span> The 2× that wasn't</summary>
+        <dl>
+          <dt>What happened</dt><dd>I estimated a search-latency fix would make it about 2× faster. Measured result: 15–25%.</dd>
+          <dt>Fix</dt><dd>Said so out loud, kept digging, and found the real bottleneck. The answer was to remove expensive work, not buy bigger machines.</dd>
+          <dt>Lesson</dt><dd>Estimates are hypotheses too. Measure, then report what you got.</dd>
+        </dl>
+      </details>
+    </section>
+
+    <section id="deps">
+      <h2><span class="hash">$</span> cat package.json</h2>
+      <p class="note">Tools I've used in production. A language is a brush, not the painting.</p>
+<pre class="json"><code>{
+  <span class="k">"name"</span>: <span class="s">"sujit"</span>,
+  <span class="k">"version"</span>: <span class="s">"2026.10.0"</span>,
+  <span class="k">"dependencies"</span>: {
+    <span class="k">"ruby-on-rails"</span>: <span class="s">"since 2013"</span>,
+    <span class="k">"postgresql"</span>:    <span class="s">"since 2013"</span>,
+    <span class="k">"elasticsearch"</span>: <span class="s">"since 2014"</span>,
+    <span class="k">"go"</span>:            <span class="s">"since 2015"</span>,
+    <span class="k">"python"</span>:        <span class="s">"since college"</span>,
+    <span class="k">"elixir"</span>:        <span class="s">"phoenix, at getolo"</span>,
+    <span class="k">"aws"</span>:           <span class="s">"eventbridge, sqs, ecs"</span>,
+    <span class="k">"terraform"</span>:     <span class="s">"modules, not copy-paste"</span>
+  },
+  <span class="k">"devDependencies"</span>: {
+    <span class="k">"datadog"</span>:       <span class="s">"always open in a tab"</span>,
+    <span class="k">"sidekiq"</span>:       <span class="s">"trusted, but monitored"</span>,
+    <span class="k">"docker"</span>:        <span class="s">"*"</span>
+  },
+  <span class="k">"peerDependencies"</span>: {
+    <span class="k">"llm-agents"</span>:    <span class="s">"with guardrails"</span>,
+    <span class="k">"rag"</span>:           <span class="s">"*"</span>,
+    <span class="k">"agent-memory"</span>:  <span class="s">"*"</span>
+  },
+  <span class="k">"i18n"</span>: [<span class="s">"Nepali"</span>, <span class="s">"Newari"</span>, <span class="s">"English"</span>],
+  <span class="k">"interests"</span>: [<span class="s">"artificial intelligence"</span>, <span class="s">"open source"</span>]
+}</code></pre>
+    </section>
+
+    <section id="readme">
+      <h2><span class="hash">$</span> cat README.md</h2>
+      <p class="note">Things you can click.</p>
+      <ul class="links">
+        <li><a href="https://github.com/BlackRabbitt/mspm">mspm</a>: multi-string pattern matching in Go, inspired by Aho–Corasick.</li>
+        <li><a href="https://github.com/BlackRabbitt/RecommenderSystem">RecommenderSystem</a>: my thesis, K-means plus collaborative filtering.</li>
+        <li><a href="https://github.com/BlackRabbitt/guruji">guruji</a>: an architecture-mentor skill for AI agents.</li>
+        <li><a href="https://youtu.be/wKZVnd4EeAs">Kafka with Rails</a>: talk, Ruby Meetup Nepal, 2018.</li>
+        <li><a href="https://youtu.be/vHBX-jKzEJk">Irish folk RNN</a>: a neural network with questionable taste in music.</li>
+      </ul>
+    </section>
+
+    <section id="now">
+      <h2><span class="hash">$</span> cat now.md</h2>
+      <ul class="now">
+        <li>Taking event-driven integration from staging to its first real production consumer.</li>
+        <li>Building agent skills that let non-engineers ship safely inside clear boundaries.</li>
+        <li>Growing toward staff and architect roles: fewer heroics, more leverage.</li>
+      </ul>
+      <p class="contact">
+        Say hi → <a href="https://github.com/BlackRabbitt">github.com/BlackRabbitt</a>
+      </p>
+    </section>
+
+    <footer class="foot">
+      <p><span class="dim">// last deployed: not on a Friday.</span></p>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var text = document.getElementById('fortune-text');
+      var items = [text.textContent].concat(Array.prototype.map.call(
+        document.querySelectorAll('.cookies li'),
+        function (li) { return li.textContent; }
+      ));
+      var i = 0;
+      document.getElementById('fortune-next').addEventListener('click', function () {
+        i = (i + 1) % items.length;
+        text.textContent = items[i];
+      });
+    })();
+  </script>
+</body>
+</html>
