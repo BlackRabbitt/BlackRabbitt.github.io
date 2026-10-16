@@ -142,31 +142,59 @@ h1 {
 .toc-inner {
   max-width: 44rem;
   margin: 0 auto;
-  padding: .6rem 1rem;
+  padding: 0 1rem;
   display: flex;
-  gap: 1.1rem;
+  gap: .35rem;
   overflow-x: auto;
+  scroll-padding-inline: 1rem 3.5rem;
   scrollbar-width: none;
   font-family: var(--mono);
   font-size: .85rem;
   white-space: nowrap;
 }
 .toc-inner::-webkit-scrollbar { display: none; }
-@media (max-width: 720px) {
+@media (max-width: 819px) {
   .toc-inner {
-    -webkit-mask-image: linear-gradient(to right, #000 85%, transparent);
-    mask-image: linear-gradient(to right, #000 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent);
     padding-right: 2rem;
   }
 }
-.toc a { text-decoration: none; }
+.toc a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 .5rem;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.toc a:first-child { margin-left: -.5rem; }
 .toc a::before { content: "./"; color: var(--muted); }
+.toc a[aria-current] { color: var(--fg); font-weight: 700; border-bottom-color: var(--accent); }
+.toc a:focus-visible { outline-offset: -3px; }
+@media (min-width: 820px) {
+  .toc-inner { gap: 0; font-size: .8rem; }
+  .toc a { padding: 0 .35rem; }
+  .toc a:first-child { margin-left: -.35rem; }
+}
 
 main.page { padding-top: 0; }
 
-section { margin-top: 4rem; scroll-margin-top: 3.5rem; }
+section { margin-top: 4rem; scroll-margin-top: 4rem; }
+.alias { display: block; height: 0; scroll-margin-top: 4rem; }
+main:focus { outline: none; }
 
 h2 { font-size: 1.35rem; margin: 0 0 .5rem; }
+.eyebrow {
+  display: block;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .15rem;
+}
+.cmd { display: block; overflow-wrap: anywhere; }
 .hash { color: var(--accent); }
 
 .note { color: var(--muted); font-style: italic; margin: 0 0 1.5rem; }
@@ -272,30 +300,19 @@ h2 { font-size: 1.35rem; margin: 0 0 .5rem; }
 
 /* --- git show HEAD --- */
 
-.commit-header {
-  font-family: var(--mono);
-  font-size: .8rem;
-  color: var(--muted);
-  margin: 0 0 1.25rem;
-}
-.commit-header p { margin: 0; }
-.head-ref { color: var(--accent); font-weight: 700; }
-
-.stat { display: grid; gap: 1rem; }
-
-.hl {
+.stat {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 10px;
-  padding: 1rem 1.25rem 1.1rem;
+  padding: .25rem 1.25rem;
 }
-.hl h3 { font-size: .98rem; margin: 0 0 .6rem; overflow-wrap: anywhere; }
+.stat-row { padding: .9rem 0; }
+.stat-row + .stat-row { border-top: 1px dashed var(--line); }
+.stat-row h3 { font-size: .95rem; margin: 0 0 .3rem; overflow-wrap: anywhere; }
+.stat-row p { margin: 0; font-size: 1.02rem; }
 .path { color: var(--muted); font-weight: 400; }
 .plus { color: var(--accent); font-weight: 400; margin-left: .3rem; }
 .plus.ai { color: var(--ai); }
-.hl dl { margin: 0; display: grid; grid-template-columns: 5.5rem 1fr; gap: .35rem 1rem; font-size: 1rem; }
-.hl dt { font-family: var(--mono); font-size: .72rem; color: var(--muted); padding-top: .3rem; text-transform: uppercase; letter-spacing: .05em; }
-.hl dd { margin: 0; }
 
 /* --- case study --- */
 
@@ -307,15 +324,34 @@ h2 { font-size: 1.35rem; margin: 0 0 .5rem; }
 .tight li { margin-bottom: .45rem; }
 
 .diagram { margin: 1.5rem 0; }
-.diagram pre {
-  background: var(--card);
+
+.scroll {
+  overflow-x: auto;
   border: 1px solid var(--line);
   border-radius: 10px;
-  padding: 1rem 1.25rem;
+  background: var(--card);
+}
+.scroll:focus-visible { outline-offset: 2px; }
+.scroll pre {
   margin: 0;
-  overflow-x: auto;
+  padding: 1rem 1.25rem;
+  width: max-content;
+  min-width: 100%;
   font: .8rem/1.55 var(--mono);
 }
+
+.contract {
+  border-left: 3px solid var(--ai);
+  background: var(--card);
+  border-radius: 0 10px 10px 0;
+  padding: 1rem 1.25rem .2rem;
+  margin: 0 0 1.5rem;
+}
+.cs .contract h3 { margin-top: 0; }
+
+.status { margin: 0 0 1.5rem; display: grid; grid-template-columns: 6.5rem 1fr; gap: .35rem 1rem; }
+.status dt { font-family: var(--mono); font-size: .75rem; color: var(--muted); padding-top: .3rem; text-transform: uppercase; letter-spacing: .05em; }
+.status dd { margin: 0; }
 .diagram figcaption { font-size: .85rem; color: var(--muted); font-style: italic; margin-top: .4rem; }
 .d-main { color: var(--accent); font-weight: 700; }
 .d-ai { color: var(--ai); font-weight: 700; }
@@ -421,16 +457,6 @@ h2 { font-size: 1.35rem; margin: 0 0 .5rem; }
 
 /* --- package.json --- */
 
-.json {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 1rem 1.25rem;
-  overflow-x: auto;
-  font-size: .85rem;
-  line-height: 1.6;
-  margin: 0;
-}
 .json code { font-size: inherit; }
 .json .k { color: var(--key); }
 .json .s { color: var(--ai); }
@@ -453,8 +479,14 @@ h2 { font-size: 1.35rem; margin: 0 0 .5rem; }
   body { font-size: 1.05rem; }
   .c { padding-left: 3rem; }
   h2 { font-size: 1.1rem; }
-  .pm dl, .hl dl { grid-template-columns: 1fr; gap: .1rem; }
-  .hl dd { margin-bottom: .45rem; }
-  .diagram pre { font-size: .72rem; padding: .8rem; }
+  .pm dl, .status { grid-template-columns: 1fr; gap: .1rem; }
+  .status dd { margin-bottom: .5rem; }
+  .scroll pre { font-size: .72rem; padding: .8rem; }
+  .hero.page { padding-top: 1.75rem; padding-bottom: 1.25rem; }
+  .lede { font-size: 1.08rem; margin-bottom: 1rem; }
+  .role { margin-bottom: .75rem; }
+  .philosophy { font-size: .82rem; margin-bottom: 1rem; }
+  .contact-links { margin-bottom: 1rem; }
+  .stats { margin-bottom: 0; }
   .pm dd { margin-bottom: .5rem; }
 }

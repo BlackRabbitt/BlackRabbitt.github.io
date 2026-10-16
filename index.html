@@ -21,7 +21,6 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Sujit Shakya · Backend &amp; platform engineer">
   <meta name="twitter:description" content="14+ years of backend and platform engineering, told as a git log.">
-  <!-- TODO(sujit): add og:image / twitter:image once there is a 1200×630 preview image. -->
 
   <script type="application/ld+json">
   {
@@ -46,28 +45,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a class="skip" href="#head">Skip to content</a>
+  <a class="skip" href="#main">Skip to content</a>
 
   <header class="hero page">
     <p class="prompt"><span class="dim">~/sujit $</span> whoami</p>
     <h1>Sujit Shakya</h1>
     <p class="role">Senior Software Engineer · backend &amp; platform · Berlin</p>
     <p class="lede">
-      I build the backend and platform pieces other teams build on: event pipelines,
-      partner integrations, logging and monitoring, and the framework upgrades that keep it all current.
-      I've been at it since 2012, mostly in Ruby on Rails, with Go, Python and Elixir where they
-      fit. Lately that includes AI agents, and the guardrails they need to work in a real codebase.
+      I build the pieces other teams build on: event pipelines, integrations, logging and
+      monitoring. Since 2012, mostly in Ruby on Rails, with Go, Python and Elixir where they fit.
+      Lately that includes AI agents, with clear boundaries.
     </p>
     <p class="philosophy">
-      <span class="dim">// how I work</span><br>
-      Make failures visible. Make the bug class impossible, not just the bug.
-      Leave the next engineer faster than you found them.
+      <span class="dim">// how I work:</span> make failures visible, make the bug class impossible,
+      leave the next engineer faster.
     </p>
     <ul class="contact-links" aria-label="Links">
-      <li><a href="https://github.com/BlackRabbitt">github.com/BlackRabbitt</a></li>
-      <li><a href="https://www.linkedin.com/in/blackrabbitt/">linkedin.com/in/blackrabbitt</a></li>
+      <li><a href="https://github.com/BlackRabbitt">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/blackrabbitt/">LinkedIn</a></li>
       <li><a href="mailto:sshakya.mail@gmail.com">sshakya.mail@gmail.com</a></li>
-      <!-- TODO(sujit): link a public resume (a copy without phone number and home address). -->
     </ul>
     <ul class="stats" aria-label="At a glance">
       <li><b>14+</b> years</li>
@@ -78,177 +74,54 @@
 
   <nav class="toc" aria-label="Sections">
     <div class="toc-inner">
-      <a href="#head">head</a>
+      <a href="#impact">impact</a>
+      <a href="#career">career</a>
       <a href="#case-study">case-study</a>
-      <a href="#log">log</a>
       <a href="#projects">projects</a>
       <a href="#fortunes">fortunes</a>
       <a href="#postmortems">postmortems</a>
-      <a href="#deps">deps</a>
+      <a href="#tools">tools</a>
       <a href="#now">now</a>
     </div>
   </nav>
 
-  <main class="page" id="main">
+  <main class="page" id="main" tabindex="-1">
 
-    <section id="head" aria-labelledby="head-title">
-      <h2 id="head-title"><span class="hash">$</span> git show HEAD --stat</h2>
-      <p class="note">The 30-second version: four things I'd point to if you only read one section.</p>
-
-      <div class="commit-header" aria-hidden="true">
-        <p><span class="sha">commit 4e46e00</span> <span class="head-ref">(HEAD → main)</span></p>
-        <p>Author: Sujit Shakya</p>
-        <p>Date:&nbsp;&nbsp;&nbsp;Oct 2026, Berlin</p>
-      </div>
+    <section id="impact" aria-labelledby="impact-title">
+      <span class="alias" id="head" aria-hidden="true"></span>
+      <h2 id="impact-title"><span class="eyebrow">Impact</span><span class="cmd"><span class="hash">$</span> git show HEAD --stat</span></h2>
+      <p class="note">What I built that other people now build on.</p>
 
       <div class="stat">
-        <article class="hl">
-          <h3><span class="path">platform/</span>event-driven-integration <span class="plus" aria-hidden="true">+++++</span></h3>
-          <dl>
-            <dt>Problem</dt><dd>Marketing, sales and data were wired to the core app through webhooks and Zapier flows. These were fragile, and every new idea meant new glue code in the core app.</dd>
-            <dt>My part</dt><dd>I ran the discovery, wrote and led the RFC, built the producer side and a new consumer runtime, and took the infrastructure through review with the platform team.</dd>
-            <dt>Approach</dt><dd>Transactional outbox → EventBridge → one SQS queue per consumer. A shared runtime owns retries and dead-letter queues, so a team writes only a handler.</dd>
-            <dt>Outcome</dt><dd>It's verified end to end on staging, the production infrastructure is live, and the first production consumer is being built now. A new consumer is one small Terraform file. <a href="#case-study">Read the case study ↓</a></dd>
-          </dl>
-        </article>
-
-        <article class="hl">
-          <h3><span class="path">practices/</span>decisions-and-people <span class="plus" aria-hidden="true">++++</span></h3>
-          <dl>
-            <dt>Problem</dt><dd>Design reasoning lived in tickets and meetings, where nobody could find it again.</dd>
-            <dt>My part</dt><dd>I started the <em>Engineering Discovery</em> practice and wrote its guideline and 14+ discoveries. I proposed a discovery → RFC → PRD document flow, co-designed the system-design interview and ran 13 of them, and onboarded a new engineering manager and engineers.</dd>
-            <dt>Approach</dt><dd>Write the <em>what</em> and <em>why</em> down before anyone argues about the <em>how</em>. Review it in the open.</dd>
-            <dt>Outcome</dt><dd>Other engineers now write discoveries too, and one became an official RFC. Two engineers I interviewed were hired and are still on the team.</dd>
-          </dl>
-        </article>
-
-        <article class="hl">
-          <h3><span class="path">ops/</span>observability-and-safe-releases <span class="plus" aria-hidden="true">++++</span></h3>
-          <dl>
-            <dt>Problem</dt><dd>Logs were inconsistent across services, and background-job failures were hard to see.</dd>
-            <dt>My part</dt><dd>I defined a JSON log schema that engineers across squads reviewed and approved. I added background-job metrics, per-queue monitors and error fingerprinting, coordinated incidents and wrote the postmortems.</dd>
-            <dt>Approach</dt><dd>One schema everyone owns, and monitors on business flows, not just on CPU graphs. Releases have an executable rollback and go canary-first.</dd>
-            <dt>Outcome</dt><dd>8 other engineers have used the logger in 41 PRs, and another team's billing work relies on the fingerprinting. I led a Ruby 4 / Rails 8.1 upgrade with zero regressions found in QA.</dd>
-          </dl>
-        </article>
-
-        <article class="hl">
-          <h3><span class="path">ai/</span>agents-with-guardrails <span class="plus ai" aria-hidden="true">+++</span></h3>
-          <dl>
-            <dt>Problem</dt><dd>Non-engineers want to build with AI assistants. An assistant with commit access and no boundaries is a liability.</dd>
-            <dt>My part</dt><dd>I built an agent skill that lets marketers create event consumers, and <a href="#p-guruji">guruji</a>, an architecture-mentor skill. I also built a hackathon agent that unblocks stuck sign-ups, and shared agent tooling with my team.</dd>
-            <dt>Approach</dt><dd>A <b>green zone</b> the agent may edit, and a <b>handoff zone</b> (payloads, queues, secrets, consent) where it drafts a request for an engineer instead. Least privilege, and a human "yes" for anything irreversible.</dd>
-            <dt>Outcome</dt><dd>Skill v1 is written, and its acceptance test is building the first production consumer with it.</dd>
-            <!-- TODO(sujit): add a measured outcome once the first consumer ships (e.g. time from idea to running consumer). -->
-          </dl>
-        </article>
+        <div class="stat-row">
+          <h3><span class="path">platform/</span>event-bus <span class="plus" aria-hidden="true">+++++</span></h3>
+          <p>I took event-driven integration from discovery and RFC to production infrastructure, with the platform team. Teams now write one handler and a small Terraform file, and the runtime handles delivery. Sales, marketing, product and QA built consumers in my workshop. <a href="#case-study">Case study ↓</a></p>
+        </div>
+        <div class="stat-row">
+          <h3><span class="path">practices/</span>decisions <span class="plus" aria-hidden="true">++++</span></h3>
+          <p>I started the <em>Engineering Discovery</em> practice: the <em>what</em> and <em>why</em> before the <em>how</em>. Other engineers now write their own, and one became an official RFC. I also co-designed the system-design interview and its interviewer guidelines.</p>
+        </div>
+        <div class="stat-row">
+          <h3><span class="path">ops/</span>observability <span class="plus" aria-hidden="true">++++</span></h3>
+          <p>I defined the shared JSON logging standard. 8 other engineers have used it across 41 PRs, and another team's billing code depends on my error fingerprinting. I led the Ruby 4 / Rails 8.1 upgrade canary-first, with zero regressions found in QA.</p>
+        </div>
+        <div class="stat-row">
+          <h3><span class="path">ai/</span>boundaries <span class="plus ai" aria-hidden="true">+++</span></h3>
+          <p>I write agent skills with explicit boundaries: what the agent may change, and what it hands to an engineer. The first lets marketers build event consumers.</p>
+        </div>
       </div>
     </section>
 
-    <section id="case-study" aria-labelledby="cs-title">
-      <h2 id="cs-title"><span class="hash">$</span> git show e7e47b5 -- docs/event-bus.md</h2>
-      <p class="note">Case study: an event bus other teams can build on. Anonymised, and still in progress, so I'll say where things stand.</p>
-
-      <div class="cs">
-        <h3>The problem</h3>
-        <p>
-          The core app of an insurance platform (Rails, Postgres) was the source of truth for leads
-          and customers. Other departments needed to react to those changes: send conversions to ad
-          platforms, notify partners, feed the data warehouse. Each new need became another webhook
-          or Zapier flow coupled to the core app. Those integrations were fragile, owned by nobody in
-          particular, and hard to debug.
-        </p>
-        <p>
-          I needed a way for the core app to publish domain events reliably, and for other teams to
-          consume them <em>without</em> learning delivery semantics or touching the core app.
-        </p>
-
-        <figure class="diagram">
-<pre role="img" aria-label="Flow: in one database transaction the Rails app writes the domain row and an outbox row. A relay process reads outbox rows with FOR UPDATE SKIP LOCKED and publishes them to AWS EventBridge. EventBridge rules filter by event name and route to one SQS queue per consumer. A shared Python runtime polls each queue and calls the team's handler; failed messages are retried and finally land in a dead-letter queue.">
-<span class="d-main">Rails app</span>
- └ one DB transaction:
-    ├ UPDATE leads …       <span class="dim"># change</span>
-    └ INSERT outbox_entry  <span class="dim"># event</span>
-           │
-<span class="d-main">Relay</span>  <span class="dim">FOR UPDATE SKIP LOCKED</span>
-           │ publish, delete on success
-           ▼
-<span class="d-ai">EventBridge</span>  <span class="dim">rule per consumer</span>
-           ▼
-<span class="d-ai">SQS queue</span> ──(max receives)──▶ <span class="d-ai">DLQ</span>
-           ▼
-<span class="d-main">Consumer runtime</span>  <span class="dim">poll · ack · retry</span>
- └ handle(event)   <span class="dim"># team-owned code</span>
-</pre>
-          <figcaption>Read top to bottom: the producer at the top, the platform in the middle, and team-owned code at the bottom.</figcaption>
-        </figure>
-
-        <h3>Why this design</h3>
-        <ul class="tight">
-          <li><b>No dual write.</b> The event row commits in the same transaction as the domain change. Either both happen or neither does, so we can't save a lead and silently lose its event.</li>
-          <li><b>Safe to scale the relay.</b> <code>FOR UPDATE SKIP LOCKED</code> lets several relay processes pick up rows without stepping on each other. Failed rows stay in the table and get retried.</li>
-          <li><b>Managed services, no broker to run.</b> EventBridge routes by event name and SQS buffers per consumer, both managed by AWS, where the platform already runs. I had a different opinion at first and came around.</li>
-          <li><b>Names that can't drift.</b> Event names are derived from event classes (e.g. <code>&lt;app&gt;.leads.created</code>), never typed by hand.</li>
-          <li><b>A framework/plugin split.</b> The runtime owns polling, envelope parsing, acks, retries and dead-letter handling. A team declares a queue, the events it wants, and a <code>handle()</code> function.</li>
-        </ul>
-
-        <details class="more">
-          <summary>Trade-offs I accepted</summary>
-          <ul class="tight">
-            <li><b>At-least-once, not exactly-once.</b> A message can arrive twice, so consumers deduplicate on <code>event_id</code>. That's the contract, and the docs say so up front.</li>
-            <li><b>An honest security boundary.</b> All consumers run under one task role, so per-consumer IAM policies only <em>looked</em> like isolation. We replaced them with one explicit shared policy that matches what's actually enforced. Real isolation would mean separate tasks, and that's a deliberate future decision.</li>
-            <li><b>Required config, no hidden defaults.</b> The Terraform module makes visibility timeout, retention and max receives required inputs, so every consumer chooses them consciously.</li>
-            <li><b>Implicit vs explicit queue naming.</b> Environment prefixes are added by the runtime. I argued for an explicit helper; we kept the implicit version for consistency. It's a reasonable call, and I documented it.</li>
-          </ul>
-        </details>
-
-        <details class="more">
-          <summary>Failure handling and scaling</summary>
-          <ul class="tight">
-            <li>Handler succeeds → the message is deleted. Handler raises → the message goes back on the queue and is retried, and after the maximum number of receives it moves to a dead-letter queue for inspection.</li>
-            <li>Dead-letter queues are landing zones, not something the runtime reads from, so the access policy doesn't need to cover them.</li>
-            <li>Can we run more than one consumer task? Instead of answering from intuition, I read the runtime and the deploy config. Consumers share no state, so parallel tasks are safe. And even at one task, rolling deploys already run two briefly, so dedup was always required.</li>
-            <li>A platform reviewer spotted that event names were interpolated into generated Terraform. I replaced the interpolation with an allow-list validated against the real event classes. That closes the injection path and catches typos too.</li>
-          </ul>
-        </details>
-
-        <details class="more">
-          <summary>Observability and governance</summary>
-          <ul class="tight">
-            <li>The runtime logs structured JSON to the same pipeline as the core app. Along the way I diagnosed a crash loop and fixed how the log pipeline parsed its JSON.</li>
-            <li>New event types need an engineer's approval, and new infrastructure needs the platform team's. Self-service doesn't mean ungoverned.</li>
-            <!-- TODO(sujit): which monitors exist or are planned for outbox lag, relay errors and DLQ depth? Add them here once confirmed. -->
-          </ul>
-        </details>
-
-        <h3>Lessons</h3>
-        <ul class="tight">
-          <li><b>Read the code before answering a scaling question.</b> The answer was in the runtime and the deploy config, not in the architecture diagram.</li>
-          <li><b>Make the real boundary explicit.</b> A policy that implies isolation you don't have is worse than an honest one.</li>
-          <li><b>Dogfood your own docs.</b> Running the onboarding commands myself found three real bugs before anyone else hit them.</li>
-          <li><b>Not every environment deserves migration hygiene.</b> I added state-preserving Terraform <code>moved</code> blocks to a disposable staging setup, then deleted them.</li>
-        </ul>
-
-        <h3>Impact on other teams</h3>
-        <p>
-          I ran a hands-on workshop for sales, marketing, product, QA and engineering, where a frontend
-          engineer wrote a working consumer, and sales ops asked for access afterwards. Production
-          infrastructure is live, and marketing's first production consumer (sending conversion events
-          to ad platforms) is in progress.
-        </p>
-        <!-- TODO(sujit): once in production, add: number of consumers, integrations retired, or delivery quality metrics. -->
-      </div>
-    </section>
-
-    <section id="log" aria-labelledby="log-title">
-      <h2 id="log-title"><span class="hash">$</span> <span class="nw">git log --graph --reverse</span></h2>
+    <section id="career" aria-labelledby="career-title">
+      <span class="alias" id="log" aria-hidden="true"></span>
+      <h2 id="career-title"><span class="eyebrow">Career</span><span class="cmd"><span class="hash">$</span> <span class="nw">git log --graph --reverse</span></span></h2>
       <p class="note">
-        The 5-minute version. Real git refuses to combine <code>--graph</code> with <code>--reverse</code>. I did it anyway,
-        so you can read it from the beginning.
+        The long version, from 2012 to now. Real git refuses to combine <code>--graph</code> with <code>--reverse</code>.
+        I did it anyway, so you can read it from the beginning.
       </p>
       <p class="legend">
-        <span class="lg"><span class="key main"></span> <code>main</code> software</span>
-        <span class="lg"><span class="key ai"></span> <code>ai</code> the side branch that grew up</span>
+        <span class="lg"><span class="key main" aria-hidden="true"></span> <code>main</code> software</span>
+        <span class="lg"><span class="key ai" aria-hidden="true"></span> <code>ai</code> the side branch that grew up</span>
       </p>
 
       <ol class="graph">
@@ -342,7 +215,7 @@
           <span class="dot" aria-hidden="true"></span>
           <p class="meta"><span class="sha">10661ed</span> 2025 · getolo</p>
           <p class="msg">feat(observability): one logger to rule them all</p>
-          <p>I built the backend for the France launch, then a company-wide JSON logging standard that eight other engineers have built on since. That's the nicest thing anyone can say about a logger.</p>
+          <p>I built the backend for the France launch, then a company-wide JSON logging standard that other teams build on. That's the nicest thing anyone can say about a logger.</p>
         </li>
 
         <li class="c ai main-on">
@@ -356,7 +229,7 @@
           <span class="dot" aria-hidden="true"></span>
           <p class="meta"><span class="sha">e7e47b5</span> 2026 · getolo</p>
           <p class="msg">feat(events): an event bus other teams can build on</p>
-          <p>I designed and built a transactional outbox → EventBridge → SQS pipeline and a Python consumer runtime, so marketing, sales and data stop needing a new webhook for every idea (<a href="#case-study">case study</a>). I also led the Ruby 4 / Rails 8.1 upgrade, rolled out canary-first with zero regressions found in QA.</p>
+          <p>I introduced event-driven integration, so marketing, sales and data can react to domain events without a new webhook each time (<a href="#case-study">case study</a>). I also led the Ruby 4 / Rails 8.1 upgrade.</p>
         </li>
 
         <li class="c ai main-on">
@@ -366,9 +239,7 @@
           <p>
             I write agent skills, not just prompts. One lets marketers build event consumers with their AI assistant:
             a <b>green zone</b> they can edit freely, and a <b>handoff zone</b> (payloads, queues, secrets, consent)
-            where the agent drafts a request for an engineer instead of making the change. Another,
-            <a href="https://github.com/BlackRabbitt/guruji">guruji</a>, is an architecture mentor that argues with
-            my designs and keeps a log of my real decisions and mistakes.
+            where the agent drafts a request for an engineer. Another, <a href="#projects">guruji</a>, mentors me on architecture.
           </p>
         </li>
 
@@ -382,8 +253,115 @@
       </ol>
     </section>
 
+    <section id="case-study" aria-labelledby="cs-title">
+      <h2 id="cs-title"><span class="eyebrow">Case study: event bus</span><span class="cmd"><span class="hash">$</span> git show e7e47b5 -- docs/event-bus.md</span></h2>
+      <p class="note">
+        How I introduced event-driven integration at getolo. I've generalised internal service, repository
+        and event names, and left out colleagues and partners. The design and the decisions are as built.
+      </p>
+
+      <div class="cs">
+        <h3>The problem</h3>
+        <p>
+          The core app (Rails, Postgres) owns leads and customers. Marketing, sales and data needed to react to
+          changes there: send conversions to ad platforms, notify partners, feed the warehouse. Each need became
+          another webhook or Zapier flow coupled to the core app, fragile and hard to debug.
+        </p>
+        <p>
+          The goal was for the core app to publish domain events reliably, and for other teams to consume them
+          <em>without</em> learning delivery semantics or touching the core app.
+        </p>
+
+        <figure class="diagram">
+          <div class="scroll" tabindex="0" role="region" aria-label="Event bus flow diagram, scrollable">
+<pre role="img" aria-label="Flow: in one database transaction the Rails app writes the domain row and an outbox row. A relay process reads outbox rows with FOR UPDATE SKIP LOCKED and publishes them to AWS EventBridge. EventBridge rules filter by event name and route to one SQS queue per consumer. A shared Python runtime polls each queue and calls the team's handler; failed messages are retried and finally land in a dead-letter queue.">
+<span class="d-main">Rails app</span>
+ └ one DB transaction:
+    ├ UPDATE leads …       <span class="dim"># change</span>
+    └ INSERT outbox_entry  <span class="dim"># event</span>
+           │
+<span class="d-main">Relay</span>  <span class="dim">FOR UPDATE SKIP LOCKED</span>
+           │ publish, delete on success
+           ▼
+<span class="d-ai">EventBridge</span>  <span class="dim">rule per consumer</span>
+           ▼
+<span class="d-ai">SQS queue</span> ──(max receives)──▶ <span class="d-ai">DLQ</span>
+           ▼
+<span class="d-main">Consumer runtime</span>  <span class="dim">poll · ack · retry</span>
+ └ handle(event)   <span class="dim"># team-owned code</span>
+</pre>
+          </div>
+          <figcaption>Read top to bottom: the producer at the top, the platform in the middle, and team-owned code at the bottom.</figcaption>
+        </figure>
+
+        <div class="contract">
+          <h3>Contract and constraints</h3>
+          <p>
+            <b>Delivery is at-least-once.</b> A message can arrive more than once, so every consumer deduplicates
+            on <code>event_id</code>.
+          </p>
+          <p>
+            <b>Consumers aren't isolated from each other in AWS.</b> They share one task role, so the access policy
+            is one explicit shared policy, not per-consumer policies that would only look like isolation. Real
+            isolation would mean separate tasks, and that's a future decision.
+          </p>
+          <p>
+            <b>Configuration is explicit.</b> Each consumer sets its own visibility timeout, retention and
+            maximum receives, and the shared module has no hidden defaults.
+          </p>
+        </div>
+
+        <h3>Why this design</h3>
+        <ul class="tight">
+          <li><b>No dual write.</b> The event row commits in the same transaction as the domain change. Either both happen or neither does.</li>
+          <li><b>A relay that scales out.</b> <code>FOR UPDATE SKIP LOCKED</code> lets several relay processes share the outbox table without stepping on each other. Failed rows stay put and are retried.</li>
+          <li><b>Managed services, no broker to run.</b> EventBridge routes by event name and SQS buffers per consumer, both managed by AWS, where the platform already runs. I had a different opinion at first and came around.</li>
+          <li><b>Names that can't drift.</b> Event names are derived from event classes (e.g. <code>&lt;app&gt;.leads.created</code>), never typed by hand.</li>
+          <li><b>A framework/plugin split.</b> The runtime owns polling, acks, retries and dead-lettering. A team declares a queue, the events it wants, and a <code>handle()</code> function.</li>
+        </ul>
+
+        <h3>Where it stands</h3>
+        <dl class="status">
+          <dt>Verified</dt><dd>End to end on staging, including a hands-on workshop where non-engineers deployed their own consumers.</dd>
+          <dt>Live</dt><dd>Production infrastructure, since September 2026.</dd>
+          <dt>In progress</dt><dd>The first production consumer, which sends conversion events to ad platforms. Its agreed success measures are the platforms' event-quality scores and parameter counts.</dd>
+        </dl>
+
+        <details class="more">
+          <summary>Failure handling</summary>
+          <ul class="tight">
+            <li>Handler succeeds → the message is deleted. Handler raises → the message stays on the queue, is retried, and after the maximum number of receives moves to a dead-letter queue.</li>
+            <li>If a publish succeeds but deleting the outbox row fails, the relay publishes that row again on its next pass. That window is one reason the contract is at-least-once rather than exactly-once.</li>
+            <li>Dead-lettered messages are inspected manually. The runtime never reads from a dead-letter queue, so the access policy doesn't cover them.</li>
+            <li>Running several consumer tasks is safe because consumers share no state. Even at one task, rolling deploys briefly run two, so deduplication was never optional. I checked the runtime and the deploy config before answering that, rather than relying on intuition.</li>
+          </ul>
+        </details>
+
+        <details class="more">
+          <summary>Governance and change</summary>
+          <ul class="tight">
+            <li>New event types need an engineer's approval, and new infrastructure needs the platform team's. Self-service doesn't mean ungoverned.</li>
+            <li>Changing an event's payload is an engineering change in the core app. A consumer team requests it; it doesn't make it.</li>
+            <li>A platform reviewer spotted that event names were interpolated into generated Terraform. I replaced that with an allow-list validated against the real event classes, which closes the injection path and catches typos.</li>
+            <li>Environment prefixes on queue names are added by the runtime. I argued for an explicit helper; we kept the implicit version for consistency, and I documented the reasoning.</li>
+          </ul>
+        </details>
+
+        <details class="more">
+          <summary>Lessons</summary>
+          <ul class="tight">
+            <li><b>Read the code before answering a scaling question.</b> The answer was in the runtime and the deploy config, not the architecture diagram.</li>
+            <li><b>Make the real boundary explicit.</b> A policy that implies isolation you don't have is worse than an honest one.</li>
+            <li><b>Dogfood your own docs.</b> Running the onboarding commands myself found three real bugs before anyone else hit them.</li>
+            <li><b>Not every environment deserves migration hygiene.</b> I added state-preserving Terraform <code>moved</code> blocks to a disposable staging setup, then deleted them.</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
     <section id="projects" aria-labelledby="projects-title">
-      <h2 id="projects-title"><span class="hash">$</span> ls ~/src</h2>
+      <span class="alias" id="readme" aria-hidden="true"></span>
+      <h2 id="projects-title"><span class="eyebrow">Projects</span><span class="cmd"><span class="hash">$</span> ls ~/src</span></h2>
       <p class="note">Things I built in public, and why.</p>
 
       <article class="proj" id="p-guruji">
@@ -413,11 +391,13 @@
     </section>
 
     <section id="fortunes" aria-labelledby="fortunes-title">
-      <h2 id="fortunes-title"><span class="hash">$</span> fortune sujit</h2>
+      <h2 id="fortunes-title"><span class="eyebrow">Lessons</span><span class="cmd"><span class="hash">$</span> fortune sujit</span></h2>
       <p class="note">Things I learned the hard way, squeezed into cookies.</p>
 
-      <figure class="fortune" aria-live="polite">
-        <blockquote id="fortune-text">A config file is a wish. The running process is the truth.</blockquote>
+      <figure class="fortune">
+        <div role="status" aria-live="polite" aria-atomic="true">
+          <blockquote id="fortune-text">A config file is a wish. The running process is the truth.</blockquote>
+        </div>
         <button type="button" id="fortune-next">another one ↻</button>
       </figure>
 
@@ -439,7 +419,7 @@
     </section>
 
     <section id="postmortems" aria-labelledby="pm-title">
-      <h2 id="pm-title"><span class="hash">$</span> ls postmortems/</h2>
+      <h2 id="pm-title"><span class="eyebrow">Postmortems</span><span class="cmd"><span class="hash">$</span> ls postmortems/</span></h2>
       <p class="note">Blameless format, including when the person to blame was me. Each one changed how I work.</p>
 
       <details class="pm">
@@ -502,9 +482,11 @@
       </details>
     </section>
 
-    <section id="deps" aria-labelledby="deps-title">
-      <h2 id="deps-title"><span class="hash">$</span> cat package.json</h2>
+    <section id="tools" aria-labelledby="tools-title">
+      <span class="alias" id="deps" aria-hidden="true"></span>
+      <h2 id="tools-title"><span class="eyebrow">Tools</span><span class="cmd"><span class="hash">$</span> cat package.json</span></h2>
       <p class="note">Tools I've used in production. A language is a brush, not the painting.</p>
+      <div class="scroll" tabindex="0" role="region" aria-label="Tools and languages, as package.json">
 <pre class="json"><code>{
   <span class="k">"name"</span>: <span class="s">"sujit"</span>,
   <span class="k">"version"</span>: <span class="s">"2026.10.0"</span>,
@@ -531,14 +513,15 @@
   <span class="k">"i18n"</span>: [<span class="s">"Nepali"</span>, <span class="s">"Newari"</span>, <span class="s">"English"</span>],
   <span class="k">"interests"</span>: [<span class="s">"artificial intelligence"</span>, <span class="s">"open source"</span>]
 }</code></pre>
+      </div>
     </section>
 
     <section id="now" aria-labelledby="now-title">
-      <h2 id="now-title"><span class="hash">$</span> cat now.md</h2>
+      <h2 id="now-title"><span class="eyebrow">Now</span><span class="cmd"><span class="hash">$</span> cat now.md</span></h2>
       <ul class="now">
-        <li>Taking event-driven integration from staging to its first real production consumer.</li>
-        <li>Building agent skills that let non-engineers ship safely inside clear boundaries.</li>
-        <li>Growing toward staff and principal roles: fewer heroics, more leverage.</li>
+        <li>Shipping the first production consumer on the event bus.</li>
+        <li>Proposing a team guideline for AI-assisted development.</li>
+        <li>Growing toward staff-level work: fewer heroics, more leverage.</li>
       </ul>
       <p class="contact">
         Say hi → <a href="mailto:sshakya.mail@gmail.com">sshakya.mail@gmail.com</a> · <a href="https://www.linkedin.com/in/blackrabbitt/">LinkedIn</a> · <a href="https://github.com/BlackRabbitt">GitHub</a>
@@ -562,6 +545,34 @@
         i = (i + 1) % items.length;
         text.textContent = items[i];
       });
+
+      var bar = document.querySelector('.toc-inner');
+      var links = Array.prototype.slice.call(bar.querySelectorAll('a'));
+      var sections = links.map(function (a) { return document.getElementById(a.hash.slice(1)); });
+      var current = null;
+      function update() {
+        var offset = bar.getBoundingClientRect().bottom + 24;
+        var idx = -1;
+        sections.forEach(function (s, n) { if (s.getBoundingClientRect().top <= offset) idx = n; });
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) idx = sections.length - 1;
+        var link = links[idx] || null;
+        if (link === current) return;
+        if (current) current.removeAttribute('aria-current');
+        current = link;
+        if (!link) return;
+        link.setAttribute('aria-current', 'location');
+        var l = link.offsetLeft, r = l + link.offsetWidth;
+        if (l < bar.scrollLeft || r > bar.scrollLeft + bar.clientWidth - 32) {
+          bar.scrollLeft = Math.max(0, l - 16);
+        }
+      }
+      var queued = false;
+      window.addEventListener('scroll', function () {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(function () { queued = false; update(); });
+      }, { passive: true });
+      update();
     })();
   </script>
 </body>

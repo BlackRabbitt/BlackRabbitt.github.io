@@ -10,17 +10,17 @@ My personal page: a career told as a `git log --graph`, where the `ai` branch fi
 
 ## Page layout
 
-1. **hero**: who I am, links, numbers.
-2. **`git show HEAD`**: the 30-second version, four impact highlights.
-3. **case study**: the event bus, with expandable details.
-4. **`git log --graph`**: the full journey, with `main` and `ai` lanes.
-5. **projects**, **fortunes**, **postmortems**, **package.json**, **now**.
+1. **hero**: who I am, links.
+2. **impact** (`git show HEAD --stat`): four themes, about 170 words.
+3. **career** (`git log --graph`): the full journey, with `main` and `ai` lanes.
+4. **case study**: the event bus, with its contract and constraints visible and the details expandable.
+5. **projects**, **fortunes**, **postmortems**, **tools**, **now**.
 
-Open items for review are marked `TODO(sujit)` in HTML comments.
+Old anchors `#head`, `#log`, `#readme` and `#deps` still work as aliases.
 
 ## Edit
 
 - Commits are the `<li class="c ...">` items in `index.html`. Use `main` for the career lane and `ai` for the AI lane. Add `ai-on` to a `main` commit, or `main-on` to an `ai` commit, while both branches are alive.
 - To add a fortune, add an `<li>` to `.cookies`. The "another one" button picks it up automatically.
 - To add a postmortem, copy a `<details class="pm">` block.
-- To add a highlight, copy an `<article class="hl">` block in `#head`. Keep each row to one or two sentences.
+- To add an impact row, copy a `<div class="stat-row">` block in `#impact`. Keep each row to two or three sentences.
