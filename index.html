@@ -206,6 +206,13 @@
 
         <li class="c main ai-on">
           <span class="dot" aria-hidden="true"></span>
+          <p class="meta"><span class="sha">1b0c5a1</span> Jan 2020 · Kathmandu · side project</p>
+          <p class="msg">feat(startup): Lancerbooks, from zero to 100+ orders a day</p>
+          <p>My wife started an online shop, Addtocart, and it needed inventory, products and orders managed somewhere. So I built <a href="#p-lancerbooks">Lancerbooks</a> alongside my day job, as its sister startup, and was the only engineer from planning to deployment. When the shop's TikTok went viral, it handled 100+ orders a day at peak. We shut both down in 2022 when we moved to Berlin.</p>
+        </li>
+
+        <li class="c main ai-on">
+          <span class="dot" aria-hidden="true"></span>
           <p class="meta"><span class="sha">be71170</span> Oct 2022 · getolo, Berlin</p>
           <p class="msg">feat: insurance, at scale</p>
           <p>I joined getolo to work on a pet and dental insurance platform. When the acquisition squad formed, I was its first backend engineer, building referrals, vouchers, multiple pets per customer, digital payments and partner integrations.</p>
@@ -376,7 +383,15 @@
     <section id="projects" aria-labelledby="projects-title">
       <span class="alias" id="readme" aria-hidden="true"></span>
       <h2 id="projects-title"><span class="eyebrow">Projects</span><span class="cmd"><span class="hash">$</span> ls ~/src</span></h2>
-      <p class="note">Things I built in public, and why.</p>
+      <p class="note">Things I built, and why.</p>
+
+      <article class="proj" id="p-lancerbooks">
+        <h3>Lancerbooks <span class="lang">Rails · Postgres · Sidekiq · Vue · 2020–2022</span></h3>
+        <p><b>What:</b> a store admin for small online businesses: products and variants, inventory, purchase orders and vendors, orders and customers, sales dashboards, and ad-spend tracking. A small Vue storefront read from its API. It ran at lancerbooks.co (now offline), with an <a href="https://www.instagram.com/lancerbooks/">Instagram page</a> that's still up.</p>
+        <p><b>Why:</b> my wife's online shop, Addtocart, was its first and only customer, so every feature started as a real request from the shop. When the shop's TikTok went viral, Lancerbooks handled 100+ orders a day at peak.</p>
+        <p><b>Interesting decisions:</b> I built every store as a team inside one app, with feature flags per store. Stock only moves through stock-in and stock-out forms, and every order status change is recorded with who made it, so the history explains the numbers. Bulk order updates run as background jobs. Invoices are rendered as PDFs with headless Chrome. It all ran on a single server, with app, database and jobs on one box, deployed with Capistrano and tested in CI.</p>
+        <p><b>My part:</b> everything, from planning to deployment, as the only engineer. The source is private.</p>
+      </article>
 
       <article class="proj" id="p-guruji">
         <h3><a href="https://github.com/BlackRabbitt/guruji">guruji</a> <span class="lang">agent skill · markdown</span></h3>
