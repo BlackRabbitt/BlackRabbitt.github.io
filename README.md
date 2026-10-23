@@ -20,7 +20,7 @@ Old anchors `#head`, `#log`, `#readme` and `#deps` still work as aliases.
 
 ## Edit
 
-- Commits are the `<li class="c ...">` items in `index.html`. Use `main` for the career lane and `ai` for the AI lane. Add `ai-on` to a `main` commit, or `main-on` to an `ai` commit, while both branches are alive.
+- Commits are the `<li class="c ...">` items in `index.html`. Use `main` for the career lane and `ai` for the AI lane. Add `ai-on` to a `main` commit, or `main-on` to an `ai` commit, while both branches are alive. The `lancerbooks` lane uses `lb`, with `lb-fork` on its first commit and `lb-end` on its last.
 - To add a fortune, add an `<li>` to `.cookies`. The "another one" button picks it up automatically.
 - To add a postmortem, copy a `<details class="pm">` block.
 - To add an impact row, copy a `<div class="stat-row">` block in `#impact`. Keep each row to two or three sentences.

@@ -6,11 +6,13 @@
   --card: #ffffff;
   --accent: #b4441f;
   --ai: #127a74;
+  --lb: #6d4aa6;
   --key: #2a5fa8;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --serif: "Source Serif 4", Georgia, serif;
   --main-x: 10px;
   --ai-x: 32px;
+  --lb-x: 54px;
   --dy: 1.05rem;
 }
 
@@ -23,6 +25,7 @@
     --card: #1e1c16;
     --accent: #f08a5d;
     --ai: #5fd0c6;
+    --lb: #c0a6ee;
     --key: #7fb0f5;
   }
 }
@@ -230,6 +233,7 @@ h2 { font-size: 1.35rem; margin: 0 0 .5rem; }
 .key { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
 .key.main { background: var(--accent); }
 .key.ai { background: var(--ai); }
+.key.lb { background: var(--lb); }
 .lg { white-space: nowrap; margin-right: .9rem; }
 .nw { white-space: nowrap; }
 
@@ -237,7 +241,7 @@ h2 { font-size: 1.35rem; margin: 0 0 .5rem; }
 
 .c {
   position: relative;
-  padding: 0 0 1.75rem 3.4rem;
+  padding: 0 0 1.75rem 4.4rem;
 }
 .c p { margin: 0; }
 
@@ -267,6 +271,15 @@ h2 { font-size: 1.35rem; margin: 0 0 .5rem; }
 }
 .c.fork::after { top: var(--dy); }
 
+/* lancerbooks lane: a side branch drawn as a background stripe */
+.c.lb {
+  background: linear-gradient(var(--lb), var(--lb)) no-repeat;
+  background-position: var(--lb-x) 0;
+  background-size: 2px 100%;
+}
+.c.lb-fork { background-position: var(--lb-x) var(--dy); background-size: 2px calc(100% - var(--dy)); }
+.c.lb-end { background-size: 2px var(--dy); }
+
 .curve {
   position: absolute;
   left: calc(var(--main-x) + 1px);
@@ -285,6 +298,16 @@ h2 { font-size: 1.35rem; margin: 0 0 .5rem; }
   border-bottom-left-radius: 14px;
   border-color: var(--accent);
   width: calc(var(--ai-x) - var(--main-x) - 4px);
+}
+.lb-fork .curve {
+  left: var(--main-x);
+  top: calc(var(--dy) * -1);
+  height: calc(var(--dy) * 2);
+  border-left-width: 2px;
+  border-bottom-width: 2px;
+  border-bottom-left-radius: 14px;
+  border-color: var(--accent);
+  width: calc(var(--lb-x) - var(--main-x) - 4px);
 }
 .merge .curve {
   border-right-width: 2px;
@@ -306,13 +329,17 @@ h2 { font-size: 1.35rem; margin: 0 0 .5rem; }
   z-index: 1;
 }
 .c.ai .dot { left: calc(var(--ai-x) - 5px); border-color: var(--ai); }
+.c.lb .dot { left: calc(var(--lb-x) - 5px); border-color: var(--lb); }
+.c.lb-end .dot { background: var(--lb); }
 .c.merge .dot { background: var(--accent); width: 14px; height: 14px; top: calc(var(--dy) - 7px); left: calc(var(--main-x) - 6px); }
 
 .meta { font-family: var(--mono); font-size: .75rem; color: var(--muted); line-height: 2.1; }
 .sha { color: var(--key); margin-right: .4rem; }
 .head { color: var(--accent); font-weight: 700; }
+.branch-lb { color: var(--lb); font-weight: 700; }
 .msg { font-family: var(--mono); font-weight: 700; font-size: 1rem; margin-bottom: .25rem !important; }
 .c.ai .msg { color: var(--ai); }
+.c.lb .msg { color: var(--lb); }
 
 /* --- git show HEAD --- */
 
@@ -494,7 +521,7 @@ h2 { font-size: 1.35rem; margin: 0 0 .5rem; }
 @media (max-width: 560px) {
   .page { padding-top: 2.5rem; }
   body { font-size: 1.05rem; }
-  .c { padding-left: 3rem; }
+  .c { padding-left: 4.15rem; }
   h2 { font-size: 1.1rem; }
   .pm dl, .status { grid-template-columns: 1fr; gap: .1rem; }
   .status dd { margin-bottom: .5rem; }
