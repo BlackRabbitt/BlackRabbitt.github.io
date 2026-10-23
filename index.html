@@ -395,7 +395,7 @@
       <article class="proj" id="p-lancerbooks">
         <h3>Lancerbooks <span class="lang">Rails · Postgres · Sidekiq · Vue · 2020–2022</span></h3>
         <p class="proj-lede">How a tool for my own problem grew into the system behind my family's business.</p>
-        <p><b>My problem:</b> alongside my job at DesignFiles, I consulted on a few freelance projects. Tracking hours, sending invoices and checking who had paid took more time than it should, so in January 2020 I built myself a bookkeeping app. Hours came in from Toggl per project, invoices went out as PDFs, and payments were tracked against them. That's the name: (free)lancer books.</p>
+        <p><b>My problem:</b> alongside my job at DesignFiles, I consulted on a few freelance projects. Tracking hours, sending invoices and checking who had paid took more time than it should, so in January 2020 I built myself a bookkeeping app. Hours came in from Toggl per project, invoices went out as PDFs, and payments were tracked against them. That's the name: (free)lancer books. When Toggl retired its old API domain in 2021, I fixed the Ruby client I depended on and <a href="https://github.com/kanet77/togglv8/pull/29">sent the fix upstream</a>.</p>
         <p><b>My family's problem:</b> then my wife started an online shop, Addtocart. It needed products and variants, inventory, purchase orders, vendors, customers, and orders from both social media and the shop counter. Rather than starting over, I extended Lancerbooks. One codebase now served two kinds of account: my account kept freelance bookkeeping, and business accounts got a team-based store admin, with store and inventory features switched on per team.</p>
         <p><b>Under load:</b> when Addtocart's TikTok went viral, Lancerbooks handled 100+ orders a day at peak. Stock only moved through stock-in and stock-out forms, and every order status change was recorded with who made it, so the numbers could always be explained. Bulk order updates ran as background jobs. It all ran on a single server, deployed with Capistrano and tested in CI, and a small Vue storefront read from its API.</p>
         <p><b>My part:</b> the only engineer, from planning to development to deployment, for about three years. We shut down both Lancerbooks and Addtocart when we moved from Nepal to Berlin. lancerbooks.co is offline, the <a href="https://www.instagram.com/lancerbooks/">Instagram page</a> is still up, and the source is private.</p>
@@ -423,6 +423,7 @@
       </article>
 
       <ul class="also">
+        <li><a href="https://github.com/kanet77/togglv8/pull/29">togglv8 #29</a>: an open-source fix to a Ruby client for Toggl, after Toggl moved its API to a new domain in 2021. Lancerbooks ran on my fork. The PR is still open, with other users asking for it to be merged.</li>
         <li><a href="https://youtu.be/wKZVnd4EeAs">Kafka with Rails</a>: talk at Ruby Meetup Nepal, 2018. I was already thinking about events.</li>
         <li><a href="https://youtu.be/vHBX-jKzEJk">Irish folk music RNN</a>: a self-taught deep-learning side quest, with questionable taste in music.</li>
       </ul>
