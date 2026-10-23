@@ -109,7 +109,7 @@
       <div class="stat">
         <div class="stat-row">
           <h3><span class="path">platform/</span>event-bus <span class="plus" aria-hidden="true">+++++</span></h3>
-          <p>I took event-driven integration from discovery and RFC to production infrastructure, with the platform team. Teams now write one handler and a small Terraform file, and the runtime handles delivery. Sales, marketing, product and QA built consumers in my workshop. <a href="#case-study">Case study ↓</a></p>
+          <p>I took event-driven integration from discovery and RFC to its first production consumer, with the platform team. Teams now write one handler and a small Terraform file, and the runtime handles delivery. Sales, marketing, product and QA built consumers in my workshop. <a href="#case-study">Case study ↓</a></p>
         </div>
         <div class="stat-row">
           <h3><span class="path">practices/</span>decisions <span class="plus" aria-hidden="true">++++</span></h3>
@@ -360,8 +360,8 @@
         <h3>Where it stands</h3>
         <dl class="status">
           <dt>Verified</dt><dd>End to end on staging, including a hands-on workshop where non-engineers deployed their own consumers.</dd>
-          <dt>Live</dt><dd>Production infrastructure, since September 2026.</dd>
-          <dt>In progress</dt><dd>The first production consumer, which sends conversion events to ad platforms. Its agreed success measures are the platforms' event-quality scores and parameter counts.</dd>
+          <dt>Live</dt><dd>Production infrastructure since September 2026, and the first production consumer since October 2026. It sends lead events to an ad platform's conversions API.</dd>
+          <dt>Next</dt><dd>Measuring whether it improves lead quality, with the agreed success measures: the platform's event-quality scores and parameter counts.</dd>
         </dl>
 
         <details class="more">
@@ -567,7 +567,7 @@
     <section id="now" aria-labelledby="now-title">
       <h2 id="now-title"><span class="eyebrow">Now</span><span class="cmd"><span class="hash">$</span> cat now.md</span></h2>
       <ul class="now">
-        <li>Shipping the first production consumer on the event bus.</li>
+        <li>Building a CI review pipeline for event consumers: a contract check first, then an AI review, then the infrastructure PR opened automatically.</li>
         <li>Proposing a team guideline for AI-assisted development.</li>
         <li>Growing toward staff-level work: fewer heroics, more leverage.</li>
       </ul>
