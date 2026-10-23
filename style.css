@@ -87,7 +87,23 @@ h1 {
   letter-spacing: -.02em;
 }
 
-.role { font-family: var(--mono); color: var(--muted); font-size: .95rem; margin: .25rem 0 1.25rem; }
+.role { font-family: var(--mono); color: var(--muted); font-size: .95rem; margin: .25rem 0 0; }
+
+.hero-top {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0 0 1.25rem;
+}
+.hero-top > div { min-width: 0; }
+.avatar {
+  flex: none;
+  width: 104px;
+  height: 104px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: #fbf8f1;
+}
 
 .lede { font-size: 1.25rem; margin: 0 0 1.5rem; }
 
@@ -484,7 +500,8 @@ h2 { font-size: 1.35rem; margin: 0 0 .5rem; }
   .scroll pre { font-size: .72rem; padding: .8rem; }
   .hero.page { padding-top: 1.75rem; padding-bottom: 1.25rem; }
   .lede { font-size: 1.08rem; margin-bottom: 1rem; }
-  .role { margin-bottom: .75rem; }
+  .hero-top { gap: .9rem; margin-bottom: .9rem; }
+  .avatar { width: 72px; height: 72px; border-radius: 14px; }
   .philosophy { font-size: .82rem; margin-bottom: 1rem; }
   .contact-links { margin-bottom: 1rem; }
   .stats { margin-bottom: 0; }
