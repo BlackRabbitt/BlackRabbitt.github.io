@@ -280,6 +280,13 @@
           </p>
         </li>
 
+        <li class="c ai main-on">
+          <span class="dot" aria-hidden="true"></span>
+          <p class="meta"><span class="sha">7001b07</span> Nov 2026 · getolo · hackathon</p>
+          <p class="msg">feat(ai): tools first, chat second</p>
+          <p>For a hack day I built a chat assistant that fills in a pet insurance application in simple German. The chat was only the demo. The real work was underneath: tools the platform owns, shaped like MCP tools, so the model can call them but never choose whose data it touches. A QA colleague broke it with one fake "system" message. I fixed the prompt, threw twelve attacks at it, that one included, and it refused all twelve. Let QA play with the demo before the demo.</p>
+        </li>
+
         <li class="c main merge">
           <span class="curve" aria-hidden="true"></span>
           <span class="dot" aria-hidden="true"></span>
@@ -567,6 +574,7 @@
     <section id="now" aria-labelledby="now-title">
       <h2 id="now-title"><span class="eyebrow">Now</span><span class="cmd"><span class="hash">$</span> cat now.md</span></h2>
       <ul class="now">
+        <li>Turning platform features into tools an AI agent can use safely: tools first, then skills, then a read-only MCP server.</li>
         <li>Building a CI review pipeline for event consumers: a contract check first, then an AI review, then the infrastructure PR opened automatically.</li>
         <li>Proposing a team guideline for AI-assisted development.</li>
         <li>Growing toward staff-level work: fewer heroics, more leverage.</li>
